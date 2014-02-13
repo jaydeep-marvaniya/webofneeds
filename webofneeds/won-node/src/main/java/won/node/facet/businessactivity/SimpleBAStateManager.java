@@ -1,6 +1,5 @@
 package won.node.facet.businessactivity;
 
-import won.node.facet.impl.BAParticipantCompletionState;
 
 import java.net.URI;
 import java.util.HashMap;
@@ -14,10 +13,10 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 public class SimpleBAStateManager  implements  BAStateManager{
-    private HashMap<URI, BAParticipantCompletionState> map = new HashMap();
+    private HashMap<String, BAParticipantCompletionState> map = new HashMap();
 
-    public BAParticipantCompletionState getStateForNeedUri(URI needUri){
-        return map.get(needUri);
+    public BAParticipantCompletionState getStateForNeedUri(URI ownerUri, URI needUri){
+        return map.get(ownerUri.toString()+ needUri.toString());
     }
 
     public void setupStateForNeedUri(URI needUri)
@@ -28,9 +27,9 @@ public class SimpleBAStateManager  implements  BAStateManager{
        }
     }
 
-    public void setStateForNeedUri(BAParticipantCompletionState state, URI uri)
+    public void setStateForNeedUri(BAParticipantCompletionState state, URI ownerUri, URI needUri)
     {
-       map.put(uri, state);
+       map.put(ownerUri.toString()+needUri.toString(), state);
     }
 
 }

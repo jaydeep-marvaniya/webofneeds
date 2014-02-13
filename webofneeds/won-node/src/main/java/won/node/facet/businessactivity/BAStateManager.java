@@ -1,7 +1,5 @@
 package won.node.facet.businessactivity;
 
-import won.node.facet.impl.BAParticipantCompletionState;
-
 import java.net.URI;
 
 /**
@@ -12,7 +10,7 @@ import java.net.URI;
  * To change this template use File | Settings | File Templates.
  */
 public interface BAStateManager {
-    public BAParticipantCompletionState getStateForNeedUri(URI needUri);
+    public BAParticipantCompletionState getStateForNeedUri(URI ownerUri, URI needUri);
     public void setupStateForNeedUri(URI needUri);
-    public void setStateForNeedUri(BAParticipantCompletionState state, URI uri);
+    public void setStateForNeedUri(BAParticipantCompletionState state, URI ownerUri, URI needURI);
 }
