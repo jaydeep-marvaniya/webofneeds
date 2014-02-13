@@ -51,6 +51,5 @@ public class AutomaticConnectionOpenerListener extends BaseEventListener
       }
       return;
     }
-
   }
 }
