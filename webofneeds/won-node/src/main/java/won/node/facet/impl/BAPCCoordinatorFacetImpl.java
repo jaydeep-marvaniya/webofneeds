@@ -165,7 +165,6 @@ public class BAPCCoordinatorFacetImpl extends Facet {
                     logger.info("New state of the Coordinator:"+stateManager.getStateForNeedUri(con.getNeedURI(), con.getRemoteNeedURI()));
 
                     ownerFacingConnectionClient.textMessage(con.getConnectionURI(), message);
-                    System.out.println("daki Nesto");
                 } catch (WonProtocolException e) {
                     logger.warn("caught WonProtocolException:", e);
                 }

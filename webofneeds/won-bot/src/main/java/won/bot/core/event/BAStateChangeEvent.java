@@ -4,6 +4,8 @@ import com.hp.hpl.jena.rdf.model.Model;
 import won.bot.events.Event;
 import won.protocol.model.ChatMessage;
 import won.protocol.model.Connection;
+import won.protocol.model.FacetType;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,12 +18,14 @@ public class BAStateChangeEvent implements Event
 {
     private final Connection con;
     private final ChatMessage message;
+    private final FacetType facetType;
     private final Model content;
 
-    public BAStateChangeEvent(final Connection con, final ChatMessage message, final Model content)
+    public BAStateChangeEvent(final Connection con, final ChatMessage message, final FacetType facetType, final Model content)
     {
         this.con = con;
         this.message = message;
+        this.facetType = facetType;
         this.content = content;
     }
 
@@ -33,6 +37,11 @@ public class BAStateChangeEvent implements Event
     public ChatMessage getMessage()
     {
         return message;
+    }
+
+    public FacetType getFacetType()
+    {
+        return facetType;
     }
 
     public Model getContent()
